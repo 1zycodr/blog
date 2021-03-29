@@ -1,0 +1,3 @@
+from models.controllers.user_controller import UserController
+from models.controllers.profile_controller import ProfileController
+from models.controllers.post_controller import PostController
