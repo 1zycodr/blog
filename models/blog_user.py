@@ -14,3 +14,7 @@ class User:
         self.username = username
         self.password = password
         self.profile_id = profile_id
+
+    @classmethod
+    def from_dict(cls, data):
+        return User(**data)

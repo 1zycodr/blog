@@ -1,0 +1,16 @@
+(StartMenu)
+Войти
+    username:
+    password:
+        (MainMenu)
+        Мой профиль
+            (ProfileMenu)
+        Моя стена
+            (MyPageMenu)
+        Лента
+            (NewsMenu)
+Зарегистрироватья
+    username:
+    password:
+        (MainMenu)
+Выйти

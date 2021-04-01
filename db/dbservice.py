@@ -45,22 +45,4 @@ class DBService:
 
 
 if __name__ == '__main__':
-    db = Db()
-
-# def main():
-#     connection = get_db_connection()
-
-    try:
-        with connection.cursor() as cursor:
-            # query = "INSERT INTO person (age, name, surname) VALUES (%d, '%s', '%s')" % (20, 'new_name', 'new_surname')
-            query = "INSERT INTO person (age, name, surname) VALUES (20, %s, %s)" 
-            
-            cursor.execute(query, ('new_name', 'new_surname'))
-            connection.commit()
-
-            print('Description:', cursor.description)
-
-    except Exception as ex:
-        print(ex)
-    finally:
-        connection.close()
+    print('Вы запустили этот модуль напрямую!')
