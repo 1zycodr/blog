@@ -1,6 +1,8 @@
 from db import DBService
 from models import User
-from custom_exceptions import RepositoryError
+from exceptions import RepositoryError
+from models.controllers import ProfileController
+import models.repositories
 
 class UserRepository:
     __db = None
@@ -28,7 +30,40 @@ class UserRepository:
             print(ex)
             raise RepositoryError
 
-    
+
+    def login_user(self, username, password):
+        """
+        Возвращает объект класса User, если есть запись в бд
+        :param username: - str
+        :param password: - str
+        :return (User, Profile): - успех
+        :return None - неправильные данные
+        :raise RepositoryError: - ошибка в бд
+        """
+
+        try:
+            query = "SELECT * FROM blog_user WHERE username = '{username}' AND password = '{password}'"
+            query = query.format(username= username, password= password)
+            self.__db.execute(query)
+
+            if self.__db.cursor.rowcount == 1:
+                user = User.from_dict(self.__db.cursor.fetchone())
+
+                if user:
+                    profile_repo = models.repositories.ProfileRepository(self.__db)
+                    profile_controller = ProfileController(profile_repo)
+                    profile = profile_controller.select_profile(user.profile_id)
+
+                    if profile:
+                        return (user, profile)
+            elif self.__db.cursor.rowcount > 1:
+                raise RepositoryError
+                
+            return (None, None)
+        except Exception as ex:
+            print(ex)
+            
+
     def select_user(self, id):
         """
         Возвращает объект класса User с бд с нужным нам id

@@ -1,4 +1,4 @@
-from custom_exceptions import UserInputOptionException, InvalidInputConfirmException
+from exceptions import UserInputOptionException, InvalidInputConfirmException
 from utils import get_option_input
 
 class BaseMenu:
@@ -12,7 +12,7 @@ class BaseMenu:
             try:
                 return input_func(*args, **kwargs)
             except UserInputOptionException:
-                print('Incorrect option.')
+                print('Incorrect option!')
             except InvalidInputConfirmException:
                 print("Enter 'y' or 'n'!")
             except KeyboardInterrupt:

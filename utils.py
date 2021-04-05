@@ -1,4 +1,4 @@
-from custom_exceptions import UserInputOptionException
+from exceptions import UserInputOptionException
 
 def option_input(string):
     result = input(string)

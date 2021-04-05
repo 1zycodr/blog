@@ -20,3 +20,7 @@ class Profile:
         self.second_name = second_name
         self.last_name = last_name
         self.age = age
+
+    @classmethod
+    def from_dict(cls, data):
+        return Profile(**data)
