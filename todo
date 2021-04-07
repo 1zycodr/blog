@@ -1,7 +1,9 @@
-Создать crud методы в репозиториях моделей 
-Дать доступ к ним через контроллеры
-
 Реализовать регистрацию (RegistrationMenu)
     Controllers:
         + is_user_already_exist(username) -> bool 
         create_user() -> переход на главную страницу
+
+profile_menu:
+    edit_second_name
+    edit_last_name
+    edit_age

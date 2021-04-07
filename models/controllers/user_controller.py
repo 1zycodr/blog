@@ -9,9 +9,12 @@ class UserController:
         return self.__user_repo.create_user(user)
 
     
-    def select_user(self, id=None, username=None, password=None, by_id=True):
+    def select_user(self, id):
         return self.__user_repo.select_user(id)
 
+    
+    def is_user_exist(self, username):
+        return self.__user_repo.select_user_by_username(username)
 
     def login_user(self, username, password):
         """

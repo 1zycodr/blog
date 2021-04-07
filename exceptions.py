@@ -9,3 +9,12 @@ class ExitFromMenuException(Exception):
 
 class InvalidInputConfirmException(Exception):
     pass
+
+class InvalidUsernameException(Exception):
+    pass
+
+class InvalidPasswordException(Exception):
+    pass
+
+class InvalidNameException(Exception):
+    pass

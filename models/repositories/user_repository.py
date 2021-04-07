@@ -62,7 +62,21 @@ class UserRepository:
             return (None, None)
         except Exception as ex:
             print(ex)
-            
+
+
+    def select_user_by_username(self, username):
+        try:
+            query = "SELECT * FROM blog_user WHERE username = '%s'" % username
+            self.__db.execute(query)
+            if self.__db.cursor.rowcount > 0:
+                return User.from_dict(self.__db.cursor.fetchone())
+            else:
+                return None
+
+        except Exception as ex:
+            print(ex)
+            raise RepositoryError
+
 
     def select_user(self, id):
         """

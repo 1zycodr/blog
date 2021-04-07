@@ -1,4 +1,4 @@
-from exceptions import UserInputOptionException, InvalidInputConfirmException
+from exceptions import *
 from utils import get_option_input
 
 class BaseMenu:
@@ -18,6 +18,10 @@ class BaseMenu:
             except KeyboardInterrupt:
                 print('Bye!')
                 exit(0)
+            except InvalidUsernameException:
+                print('Invalid username!')
+            except InvalidPasswordException:
+                print('Invalid password!')
             except Exception as ex:
                 print('Something wrong!')
                 print(ex)

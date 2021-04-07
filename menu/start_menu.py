@@ -1,6 +1,6 @@
 from menu import BaseMenu
 from utils import get_option_input, raise_exception
-from exceptions import UserInputOptionException
+from exceptions import UserInputOptionException, ExitFromMenuException
 from menu.registration_menu import RegistrationMenu
 from menu.login_menu import LoginMenu
 
@@ -38,4 +38,7 @@ class StartMenu(BaseMenu):
                 self.__profile_controller, 
                 self.__post_controller
             )
-            next_menu.show()
+            try:
+                next_menu.show()
+            except ExitFromMenuException:
+                pass
