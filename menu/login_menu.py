@@ -8,7 +8,7 @@ class LoginMenu(BaseMenu):
     __header = '-' * 10 + ' Login ' + '-' * 10
     __options = '[1] - Retry\n[2] - Back'
     
-
+    
     def __init__(self, user_controller, profile_controller, post_controller):
         self.__user_controller = user_controller
         self.__profile_controller = profile_controller
